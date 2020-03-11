@@ -1,0 +1,13 @@
+//
+//  ProdMode.xcconfig
+//  collapsingToolbar
+//
+//  Created by Rishab Maharjan on 2/13/20.
+//  Copyright © 2020 Rishab. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASEURL = TestProdUrl
+
