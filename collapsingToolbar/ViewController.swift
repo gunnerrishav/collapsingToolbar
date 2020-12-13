@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     private var lastContentOffset: CGFloat = 0.0
     private var titleList = ["Fruits", "Animals", "Vegetables"]
-    private var contentList = ["Apple", "Banana", "Grapes", "Papaya", "Rabbit", "Monkey", "Bear", "Apple1", "Apple2", "Apple3", "Apple4", "Apple5"]
+    private var contentList = ["Apple", "Banana", "Grapes", "Papaya", "Rabbit", "Monkey", "Bear", "Apple1", "Apple2", "Apple3", "Apple4", "Apple5", "Apple6", "Apple7", "Apple8", "Apple9", "Apple10", "Apple11"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,28 +67,40 @@ extension ViewController: UITableViewDelegate{
     //        }
     //    }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        lastContentOffset = scrollView.contentOffset.y
-    }
+    //    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    //        lastContentOffset = scrollView.contentOffset.y
+    //    }
+    //
+    //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    //        if lastContentOffset > scrollView.contentOffset.y {
+    //            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+    ////                self?.viewTop.alpha = 1.0
+    ////                self?.viewTop.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+    //                self?.collapsingViewHeightConstraint.constant = 150.0
+    //                self?.constraintBottom.constant = 0
+    //                self?.view.layoutIfNeeded()
+    //            }, completion: nil)
+    //        } else if lastContentOffset < scrollView.contentOffset.y {
+    //            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+    ////                self?.viewTop.alpha = 0
+    ////                self?.viewTop.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+    //                self?.collapsingViewHeightConstraint.constant = 0.0
+    //                self?.constraintBottom.constant = 150.0
+    //                self?.view.layoutIfNeeded()
+    //            }, completion: nil)
+    //        }
+    //    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if lastContentOffset > scrollView.contentOffset.y {
-            UIView.animate(withDuration: 0.25, animations: { [weak self] in
-//                self?.viewTop.alpha = 1.0
-//                self?.viewTop.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                self?.collapsingViewHeightConstraint.constant = 150.0
-                self?.constraintBottom.constant = 0
-                self?.view.layoutIfNeeded()
-            }, completion: nil)
-        } else if lastContentOffset < scrollView.contentOffset.y {
-            UIView.animate(withDuration: 0.25, animations: { [weak self] in
-//                self?.viewTop.alpha = 0
-//                self?.viewTop.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-                self?.collapsingViewHeightConstraint.constant = 0.0
-                self?.constraintBottom.constant = 150.0
-                self?.view.layoutIfNeeded()
-            }, completion: nil)
+        if scrollView.contentOffset.y > 150{
+            collapsingViewHeightConstraint.constant = 0
+            return
         }
+        
+        let offsetDiff = lastContentOffset - scrollView.contentOffset.y
+        lastContentOffset = scrollView.contentOffset.y
+        let newHeight = collapsingViewHeightConstraint.constant + offsetDiff
+        collapsingViewHeightConstraint.constant = newHeight
     }
 }
 
