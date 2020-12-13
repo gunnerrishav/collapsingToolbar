@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +35,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="X3J-7p-8gZ">
                                 <rect key="frame" x="0.0" y="166" width="414" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="peq-cx-IAW"/>
                                 </constraints>
@@ -58,7 +60,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="dfF-cv-2v5" firstAttribute="centerY" secondItem="5AT-mF-E1Q" secondAttribute="centerY" id="cvf-Iq-KOP"/>
                                                 <constraint firstAttribute="trailing" secondItem="dfF-cv-2v5" secondAttribute="trailing" constant="16" id="din-a6-YMe"/>
@@ -78,7 +80,7 @@
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yx9-eI-lM5">
                                 <rect key="frame" x="0.0" y="232" width="414" height="504"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ContentCell" rowHeight="49" id="IpN-EV-k4h" customClass="ContentTableViewCell" customModule="collapsingToolbar" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="49"/>
@@ -112,7 +114,8 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eeF-BH-NX9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7xZ-3K-7KJ"/>
                             <constraint firstItem="Yx9-eI-lM5" firstAttribute="top" secondItem="X3J-7p-8gZ" secondAttribute="bottom" constant="16" id="99J-1E-Yoe"/>
@@ -125,12 +128,13 @@
                             <constraint firstItem="X3J-7p-8gZ" firstAttribute="top" secondItem="eeF-BH-NX9" secondAttribute="bottom" constant="16" id="plr-Nj-0sr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X3J-7p-8gZ" secondAttribute="trailing" id="w3C-wl-V0P"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="collapsingViewHeightConstraint" destination="eto-KD-ftH" id="ynv-aW-FSo"/>
                         <outlet property="collectionView" destination="X3J-7p-8gZ" id="FgK-jh-5aQ"/>
+                        <outlet property="constraintBottom" destination="ShZ-Ma-Qcs" id="3QY-ud-Rga"/>
                         <outlet property="tableView" destination="Yx9-eI-lM5" id="A4G-qJ-TAf"/>
+                        <outlet property="viewTop" destination="eeF-BH-NX9" id="wM3-MQ-xd1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -140,5 +144,11 @@
     </scenes>
     <resources>
         <image name="background" width="2560" height="1600"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
